@@ -1,0 +1,241 @@
+/* =====================
+   GLOBAL STYLES
+===================== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Georgia', serif;
+  background: linear-gradient(180deg, #000, #1a1a1a);
+  color: #fff;
+  margin: 0;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* =====================
+   SECTION LAYOUT
+===================== */
+section {
+  min-height: 100vh;
+  padding: clamp(60px, 8vw, 120px) 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* =====================
+   INTRO
+===================== */
+.intro h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 20px;
+  animation: fadeIn 3s ease forwards;
+}
+
+.intro p {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  opacity: 0.85;
+}
+
+/* =====================
+   GALLERY / MEMORIES
+===================== */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  max-width: 1000px;
+  margin: 40px auto 0;
+}
+
+.gallery div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gallery img {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 40px rgba(255, 255, 255, 0.25);
+}
+
+.gallery p {
+  margin-top: 15px;
+  font-size: 0.95rem;
+  opacity: 0.85;
+  max-width: 260px;
+}
+
+/* =====================
+   MESSAGE SECTION
+===================== */
+.message p {
+  max-width: 700px;
+  margin: 12px auto;
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+}
+
+/* =====================
+   FINALE
+===================== */
+.finale {
+  background: radial-gradient(circle at top, #111, #000);
+}
+
+.finale h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.finale h2 {
+  font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+  margin-top: 10px;
+  opacity: 0.9;
+}
+
+.signature {
+  margin-top: 40px;
+  font-style: italic;
+  font-size: 1rem;
+  opacity: 0.7;
+}
+
+/* =====================
+   ANIMATIONS
+===================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =====================
+   MOBILE REFINEMENTS
+===================== */
+@media (max-width: 480px) {
+  section {
+    padding: 60px 15px;
+  }
+
+  .gallery {
+    gap: 20px;
+  }
+
+  .signature {
+    font-size: 0.9rem;
+  }
+}
+.hearts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.heart {
+  position: absolute;
+  bottom: -20px;
+  font-size: 18px;
+  opacity: 0.6;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-120vh);
+    opacity: 1;
+  }
+}
+/* POLAROID GRID */
+.polaroid-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  width: auto;
+  margin: 60px auto 0;
+}
+.polaroid {
+  background: white;
+  padding: 15px 15px 30px;
+  border-radius: 6px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 12px;
+}
+
+.polaroid:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+.polaroid:hover {
+  transform: rotate(0deg) scale(1.05);
+}
+
+.polaroid img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.polaroid p {
+  color: #111;
+  margin-top: 12px;
+  font-size: 0.9rem;
+}
+.polaroidhr img{
+  max-width: 250px;
+  height: auto;
+  max-width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 4px;
+}
+/* LIGHT ENDING */
+.finale.light {
+  background: linear-gradient(#111, #f5f5f5);
+  color: #111;
+}
+@media (max-width: 600px) {
+  .polaroid {
+    grid-template-columns: minmax(90px, 35%) 1fr;
+    align-items: center;
+    padding: 12px;
+    gap: 14px;
+  }
+
+  .polaroid img {
+    width: 100%;
+    max-width: 120px;
+  }
+
+  .polaroid p {
+    font-size: 0.9rem;
+    text-align: left;
+    margin: 0;
+    line-height: 1.4;
+  }
+}
