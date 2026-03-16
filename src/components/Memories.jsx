@@ -3,6 +3,10 @@ import img1 from "../assets/1.jpg";
 import img2 from "../assets/2.jpeg";
 import img3 from "../assets/3.jpg";
 import img4 from "../assets/4.jpg";
+import img9 from "../assets/9.jpg";
+import img10 from "../assets/10.jpg";
+import img11 from "../assets/11.jpg";
+import img12 from "../assets/12.jpg";
 /* 🔹 Animation Variant */
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -23,7 +27,7 @@ export default function Memories() {
       </motion.h2>
 
       <div className="polaroid-grid">
-        {[img1, img2, img3, img4].map((img, i) => (
+        {[img1, img2, img3, img4,img9,img10,img11,img12].map((img, i) => (
           <motion.div
             className="polaroid"
             key={i}
